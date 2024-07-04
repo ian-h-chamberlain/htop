@@ -20,6 +20,9 @@ in the source distribution for its full text.
 
 static const char* const FunctionBar_FKeys[] = {"F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", NULL};
 
+// TODO: this could be compile-time or runtime configurable
+static const char* const FunctionBar_HotKeys[] = {"? ", "S ", "/ ", "\\ ", "t ", ". ", "] ", "[ ", "k ", "q ", NULL};
+
 static const char* const FunctionBar_FLabels[] = {"      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", "      ", NULL};
 
 static int FunctionBar_FEvents[] = {KEY_F(1), KEY_F(2), KEY_F(3), KEY_F(4), KEY_F(5), KEY_F(6), KEY_F(7), KEY_F(8), KEY_F(9), KEY_F(10)};
@@ -56,7 +59,7 @@ FunctionBar* FunctionBar_new(const char* const* functions, const char* const* ke
       this->size = i;
    } else {
       this->staticData = true;
-      this->keys.constKeys = FunctionBar_FKeys;
+      this->keys.constKeys = FunctionBar_HotKeys;
       this->events = FunctionBar_FEvents;
       this->size = ARRAYSIZE(FunctionBar_FEvents);
    }
